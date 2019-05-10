@@ -1,4 +1,0 @@
-export const INITIAL_STATE = 'INITIAL_STATE';
-export const TEST_STATE = 'TEST_STATE';
-export const INCREMENTER = "INCREMENTER";
-export const DECREMENTER = "DECREMENTER";
