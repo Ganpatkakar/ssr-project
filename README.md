@@ -1,3 +1,3 @@
-# react-redux-seed
+# Server-side-rendering with React js
 
-React Redux Webpack Babel setup boilerplate code
+SSR project with output
