@@ -1,19 +1,24 @@
 import React from "react";
-import { renderToString } from 'react-dom/server'
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import configStore from "../client/redux/store";
-import App from "../client/components/app";
+import { renderRoutes } from 'react-router-config';
+import Routes from '../client/Routes';
+import template from "./template";
 
-const content_initialState = () => {
-    const store = configStore();
+const content_initialState = (req, store) => {
+
     const content = renderToString(
         <Provider store={store}>
-            <App />
+            <StaticRouter location={req.path} context={{}}>
+                <div>{renderRoutes(Routes)}</div>
+            </StaticRouter>
         </Provider>
     );
     const preloadedState = store.getState();
     console.log("store on server", preloadedState);
-    return {content, preloadedState};
+    
+    return template("Server side rendering", preloadedState, content);
 };
 
 export default content_initialState;

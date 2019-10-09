@@ -1,7 +1,9 @@
+import serialize from 'serialize-javascript';
+
 const template = (title = "", initialState = {}, content) => {
     let scripts = "";
     if (content) {
-        scripts = `<script>window.__STATE__ = ${JSON.stringify(initialState)}</script>
+        scripts = `<script>window.__STATE__ = ${serialize(initialState)}</script>
                     <script src="client.bundle.js"></script>`
     } else {
         scripts = ` <script src="bundle.bundle.js"></script> `;

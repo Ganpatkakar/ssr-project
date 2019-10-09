@@ -28,12 +28,12 @@ export class App extends Component {
             <div>
                 App Loads Here
             </div>
-            <div className={"inc-dec"}>
+            {/* <div className={"inc-dec"}>
                 <button onClick={this.decrementer}>-</button>
                 <i className={"number"}>{this.props.state.number}</i>
                 <button onClick={this.incrementer}>+</button>
             </div>
-            <img className={"kakar"} src={ganpat} alt="Ganpat Kakar"/>
+            <img className={"kakar"} src={ganpat} alt="Ganpat Kakar"/> */}
         </React.Fragment>
     )
   }
@@ -50,4 +50,7 @@ const mapDispatchToProps = {
     Decrementer
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+// export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default {
+    component: connect(mapStateToProps, mapDispatchToProps)(App)
+};
