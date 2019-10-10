@@ -17,7 +17,6 @@ const content_initialState = (req, store) => {
     );
 
     const preloadedState = store.getState();
-    console.log("store on server", preloadedState);
     
     return template("Server side rendering", preloadedState, content);
 };
