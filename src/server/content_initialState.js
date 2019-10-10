@@ -15,6 +15,7 @@ const content_initialState = (req, store) => {
             </StaticRouter>
         </Provider>
     );
+
     const preloadedState = store.getState();
     console.log("store on server", preloadedState);
     

@@ -9,12 +9,16 @@ export default [
     ...App,
     routes: [
       {
+        ...ItemPage,
+        path: '/item'
+      },
+      {
         ...Search,
         path: '/search'
       },
       {
-        ...ItemPage,
-        path: '/item'
+        ...Search,
+        path: '/'
       },
       {
         ...NotFoundPage

@@ -23,6 +23,14 @@ export default function commonReducer(state = {}, action) {
                 ...state,
                 number: state.number - action.payload
             };
+        case 'Fetch_Data':
+            return {
+                fetching: true
+            };
+        case 'Fetch_Data_Failed':
+            return {
+                fetching: "failed"
+            };
         default:
             return state
     }

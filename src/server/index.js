@@ -4,5 +4,7 @@ require("@babel/register")({
     "plugins": ["transform-class-properties", "transform-object-rest-spread"]
 });
 
+require("babel-polyfill");
+
 // Import the rest of our application.
 require('./server.js');

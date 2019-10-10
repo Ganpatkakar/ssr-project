@@ -1,4 +1,5 @@
 import {enums} from "../enums";
+import axios from "axios";
 
 export const CommonAction = () => dispatch => {
     dispatch({
@@ -7,13 +8,19 @@ export const CommonAction = () => dispatch => {
     });
 };
 
-export const TestAction = () => dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(data => dispatch({
+export const TestAction = () => async (dispatch) => {
+    try {
+        dispatch({type: 'Fetch_Data'});
+        const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+        dispatch({
             type: enums.TEST_STATE,
-            payload: data
-        }));
+            payload: res.data
+        });
+    } catch(err) {
+        console.log(err);
+        dispatch({type: 'Fetch_Data_Failed'});
+    }
+
 };
 
 export const Incrementer = () => dispatch => {

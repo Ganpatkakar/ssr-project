@@ -2,9 +2,9 @@ import React from 'react';
 
 const ItemPage = () => {
   return (
-    <div className="center-align" style={{ marginTop: '200px' }}>
+    <div className="center-align">
       <h3>Welcome</h3>
-      <p>Check out these awesome features</p>
+      <p>To Item page</p>
     </div>
   );
 };

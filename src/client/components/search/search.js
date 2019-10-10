@@ -2,9 +2,9 @@ import React from 'react';
 
 const Search = () => {
   return (
-    <div className="center-align" style={{ marginTop: '200px' }}>
+    <div className="center-align">
       <h3>Welcome</h3>
-      <p>Check out these awesome features</p>
+      <p>To Search page</p>
     </div>
   );
 };
