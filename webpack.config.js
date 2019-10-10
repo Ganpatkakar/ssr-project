@@ -58,7 +58,7 @@ module.exports = {
                     loader: "babel-loader",
                     options: {
                         presets: ["@babel/env", "@babel/react"],
-                        "plugins": ["transform-class-properties", "transform-object-rest-spread"]
+                        "plugins": ["transform-class-properties", "transform-object-rest-spread", "@babel/plugin-transform-runtime"]
                     }
                 }
             }
