@@ -18,7 +18,6 @@ export const RenderContent = async (req, res) => {
     await Promise.all(actions);
     const context = {};
     const content = content_initialState(req, store, context);
-    console.log(store.getState());
 
     res.send(content);
 };
