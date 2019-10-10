@@ -3,10 +3,6 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import content_initialState from "./content_initialState";
-import configStore from "../client/redux/store";
-import {matchRoutes} from 'react-router-config';
-import Routes from "../client/Routes";
 
 import React from "react";
 
@@ -19,22 +15,14 @@ app.use(cookieParser());
 app.use(express.static(path.resolve("assets")));
 app.use(express.static(path.resolve("public")));
 
-app.get('*', async (req, res) => {
-  const store = configStore();
+import {RenderContent, getItems, getItemWithId} from "./api";
 
-  const actions = matchRoutes(Routes, req.path)
-    .map(({ route }) => route.component.fetching ? route.component.fetching(store) : null)
-    .map(async(actions) => await Promise.all(
-      (actions || []).map(p => p && new Promise(resolve => p.then(resolve).catch(resolve)))
-    ));
 
-  await Promise.all(actions);
-  const context = {};
-  const content = content_initialState(req, store, context);
-  console.log(store.getState());
+app.get("/api/items/:id", getItemWithId);
 
-  res.send(content);
-});
+app.get("/api/items", getItems);
+
+app.get('*', RenderContent);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
