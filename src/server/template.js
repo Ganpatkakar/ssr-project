@@ -1,14 +1,14 @@
 import serialize from 'serialize-javascript';
 
 const template = (title = "", initialState = {}, content) => {
-    let scripts = "";
-    if (content) {
-        scripts = `<script>window.__STATE__ = ${serialize(initialState)}</script>
+  let scripts = "";
+  if (content) {
+    scripts = `<script>window.__STATE__ = ${serialize(initialState)}</script>
                     <script src="client.bundle.js"></script>`
-    } else {
-        scripts = ` <script src="bundle.bundle.js"></script> `;
-    }
-    let page = `<!DOCTYPE html>
+  } else {
+    scripts = ` <script src="bundle.bundle.js"></script> `;
+  }
+  let page = `<!DOCTYPE html>
                 <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -22,7 +22,7 @@ const template = (title = "", initialState = {}, content) => {
                     ${scripts}
                 </body>
                 </html>`;
-    return page;
+  return page;
 };
 
 export default template;
