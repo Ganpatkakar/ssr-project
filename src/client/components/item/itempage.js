@@ -9,6 +9,4 @@ const ItemPage = () => {
   );
 };
 
-export default {
-  component: ItemPage
-};
+export default ItemPage
