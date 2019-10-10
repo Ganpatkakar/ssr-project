@@ -13,15 +13,10 @@ export default function commonReducer(state = {}, action) {
                 ...state,
                 userData: action.payload
             };
-        case enums.INCREMENTER:
+        case enums.ITEMS_FETCH:
             return {
                 ...state,
-                number: state.number + action.payload
-            };
-        case enums.DECREMENTER:
-            return {
-                ...state,
-                number: state.number - action.payload
+                items_list: action.payload
             };
         case 'Fetch_Data':
             return {
