@@ -1,27 +1,27 @@
 import React from 'react';
 import App from './components/app';
-import Search  from './components/search/search';
+import Items  from './components/items/items';
 import ItemPage from './components/item/itempage';
 import NotFoundPage from './components/notFound';
 
 export default [
   {
-    ...App,
+    component: App,
     routes: [
       {
-        ...ItemPage,
+        component: ItemPage,
         path: '/item'
       },
       {
-        ...Search,
-        path: '/search'
+        component: Items,
+        path: '/items'
       },
       {
-        ...Search,
+        component: Items,
         path: '/'
       },
       {
-        ...NotFoundPage
+        component: NotFoundPage
       }
     ]
   }
