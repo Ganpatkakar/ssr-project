@@ -1,0 +1,29 @@
+.nav-bar {
+    background: #5e6df2;
+    margin-bottom: 20px;
+    padding: 12px 40px;
+    display: flex;
+}
+
+.nav-bar-logo {
+    flex: 1;
+}
+
+.nav-bar-icons {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icons {
+    margin-right: 15px;
+    width: 30px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 46px 44px 34px;
+    background-color: rgb(37, 43, 96);
+}

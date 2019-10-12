@@ -1,0 +1,155 @@
+/* Items list grid view styles*/
+
+.items-result-gridview {
+
+}
+
+.gridview-item {
+    margin-bottom: 20px;
+}
+
+.item-container {
+    overflow: hidden;
+}
+
+.item-content {
+    width: 100%;
+    background: #fff;
+}
+
+.item-image {
+    width: 100%;
+}
+
+.sold-out {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    z-index: 2;
+    border-left: 80px solid red;
+    border-bottom: 80px solid rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.sold-out-content {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    transform: rotate(-45deg);
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    left: -82px;
+    top: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.item-title {
+    height: 20px;
+    overflow-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-description {
+    min-height: 60px;
+    padding: 5px;
+}
+
+.items-likes {
+    display: inline-flex;
+}
+
+.like-icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 5px;
+    background: url(https://cdn0.iconfinder.com/data/icons/hippicons-nature/64/heart-o-512.png) center no-repeat;
+    background-size: 100%;
+}
+
+.like-icon.like-icon-active {
+    background: url("https://cdn0.iconfinder.com/data/icons/hippicons-nature/64/heart-512.png") center no-repeat;
+    background-size: 100%;
+}
+
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.like-button {
+    display: inline-flex;
+    margin-right: 10px;
+    border-radius: 30px;
+    background: #d8d8d8;
+    border-color: transparent;
+    height: 35px;
+    font-size: 14px;
+    padding: 5px 20px;
+}
+
+.like-button .like-text {
+    height: 16px;
+    line-height: 16px;
+}
+
+.price-shipping {
+    display: inline-flex;
+    align-items: center;
+}
+
+.price-shipping .item-price {
+    font-size: 30px;
+    font-weight: normal;
+    display: flex;
+    align-items: flex-end;
+}
+
+.shipping-info {
+    margin-left: 5px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.order-container {
+    display: flex;
+    background: #35231f;
+    padding: 5px;
+}
+
+.price-shipping, .order-section {
+    flex: 1;
+    color: #fff;
+}
+
+.order-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-to-cart {
+    height: 45px;
+    border-radius: 2px;
+    background: #c92930;
+    color: #fff;
+    font-size: 1em;
+    border-color: transparent;
+}
+
+.carousal-container {
+    text-align: center;
+}
+
+.carousel-image {
+    max-width: 500px;
+}
+
+.carousel-image .item-image {
+    width: 100%;
+}
