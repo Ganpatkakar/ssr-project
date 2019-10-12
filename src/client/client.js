@@ -10,7 +10,7 @@ import Routes from './Routes';
 
 const state = window.__STATE__;
 let store = configStore(state);
-console.log("store on client", store.getState());
+
 
 const rootEl = document.getElementById("app");
 
