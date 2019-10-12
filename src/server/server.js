@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 
 import React from "react";
+import {getItems, getItemWithId, RenderContent} from "./api";
 
 const app = express();
 
@@ -15,12 +16,10 @@ app.use(cookieParser());
 app.use(express.static(path.resolve("assets")));
 app.use(express.static(path.resolve("public")));
 
-import {RenderContent, getItems, getItemWithId} from "./api";
-
-
-app.get("/api/items/:id", getItemWithId);
 
 app.get("/api/items", getItems);
+
+app.get("/api/single-item/:id", getItemWithId);
 
 app.get('*', RenderContent);
 
