@@ -18,7 +18,7 @@ const content_initialState = (req, store) => {
 
   const preloadedState = store.getState();
 
-  return template("Server side rendering", preloadedState, content);
+  return template("Mercari - Item page", preloadedState, content);
 };
 
 export default content_initialState;
