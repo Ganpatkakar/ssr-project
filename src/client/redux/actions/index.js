@@ -36,3 +36,22 @@ export const ItemsFetch = () => async (dispatch) => {
     dispatch({type: 'Fetch_Data_Failed'});
   }
 };
+
+export const SingleItemFetch = (id) => async (dispatch) => {
+  try {
+    dispatch({type: 'Fetch_Data'});
+    const url = `http://localhost:3000/api/single-item/${id}`;
+    const res = await axios.get(url);
+    dispatch({
+      type: enums.SINGLE_ITEM_FETCH,
+      payload: res.data
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({type: 'Fetch_Data_Failed'});
+  }
+};
+
+export const SingleItemRemoveData = () => async (dispatch) => {
+  dispatch({type: enums.SINGLE_ITEM_Remove,});
+};
