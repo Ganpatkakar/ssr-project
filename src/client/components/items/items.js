@@ -1,20 +1,33 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {ItemsFetch} from '../../redux/actions'
 import ItemGridView from "./item-grid-view";
 
 export class Items extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    if(!this.props.items.length) {
+      this.props.ItemsFetch();
+    }
   }
 
-  static fetching({dispatch}) {
-    return [dispatch(ItemsFetch())];
+  static fetching(dispatch, url) {
+    return [dispatch(ItemsFetch(url))];
   }
+
+  onClickImage = (event, id = 1) => {
+    event.preventDefault();
+    const url = `/item/${id}`;
+    this.props.history.push(url);
+  };
 
   renderGridView = (item) => {
     return (
-      <ItemGridView key={item.id} item={item}/>
+      <ItemGridView
+        key={item.id}
+        item={item}
+        onClickImage={this.onClickImage}
+      />
     )
   };
 
@@ -29,15 +42,18 @@ export class Items extends Component {
   render() {
     const {items} = this.props;
     return (
-      <Fragment>
+      <div className={"items-result-gridview row"}>
+        <div className="col-md-12">
+          <h1>Items result</h1>
+        </div>
         {items && this.gridContent(items)}
-      </Fragment>
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  const {items_list : {data = {}} = {}} = state;
+  const {items_list: {data = []} = {}} = state;
   return {
     items: data
   };
