@@ -1,6 +1,8 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
+
 
 module.exports = {
   context: path.resolve(__dirname, './src/client'),
@@ -13,6 +15,9 @@ module.exports = {
     filename: '[name].bundle.js'
   },
   plugins: [
+    new CompressionPlugin({
+      algorithm: 'gzip',
+    }),
     new CleanWebpackPlugin(['public']),
     new MiniCssExtractPlugin({
       filename: "style.css"
