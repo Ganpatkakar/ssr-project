@@ -3,8 +3,12 @@ Server Side rendering with React js on client and Express framework of Node js o
 
 To start the application in production mode follow bellow instructions
 
+Dependency - In this project used Node js, to run this project on any system please install Node 
+js and then navigate to project folder and apply command `npm install` to install all the 
+dependencies.
+
 1. Apply command `npm run build`
-2. Apply command `npm run server`
+2. Apply command `npm start`
 
 Navigate to browser and use command http://localhost:3000
 
