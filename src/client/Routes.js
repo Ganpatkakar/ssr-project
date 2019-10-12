@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './components/app';
-import Items  from './components/items/items';
+import Items from './components/items/items';
 import ItemPage from './components/item/itempage';
 import NotFoundPage from './components/notFound';
 
@@ -10,7 +10,7 @@ export default [
     routes: [
       {
         component: ItemPage,
-        path: '/item'
+        path: '/item/'
       },
       {
         component: Items,
