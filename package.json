@@ -4,14 +4,10 @@
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "client-dev": "webpack --mode development --watch",
-    "server-dev": "webpack --config webpack.config.server.js --mode development --watch",
-    "server-bundle": "nodemon ./dist/server.bundle.js --mode development",
     "server": "nodemon src/server/index.js --mode development",
-    "production": "webpack --config webpack.config.server.js --mode production && webpack --mode production && node ./dist/server.bundle.js",
     "build": "webpack --config webpack.config.server.js --mode production && webpack --mode production",
-    "start": "node ./dist/server.bundle.js"
+    "start": "node src/server/index.js"
   },
   "author": "kakar",
   "license": "ISC",
