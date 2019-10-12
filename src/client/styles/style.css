@@ -1,18 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
-    font-size: 20px;
-    font-family: sans-serif;
-}
-.inc-dec {
-    display: block;
+    background: #efefef;
+    margin: 0;
     font-size: 16px;
-    margin: 10px 0;
+    color: #000000;
+    font-family: BogleWeb, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.number {
-    margin: 0 5px;
+.page-container {
+    position: relative;
+    min-height: 100vh;
 }
 
-.kakar {
-    width: 250px;
-    height: 250px;
+.content-wrap {
+    padding-bottom: 10rem;
+}
+
+.btn {
+    border: 1px solid #000;
+    border-radius: 24px;
+    padding: 5px 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.2em;
 }
