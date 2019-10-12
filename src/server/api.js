@@ -7,34 +7,32 @@ const fs = require('fs');
 const path = require('path');
 
 export const RenderContent = async (req, res) => {
-    const store = configStore();
+  const store = configStore();
 
-    const actions = matchRoutes(Routes, req.path)
-        .map(({route}) => route.component.fetching ? route.component.fetching(store) : null)
-        .map(async (actions) => await Promise.all(
-            (actions || []).map(p => p && new Promise(resolve => p.then(resolve).catch(resolve)))
-        ));
+  const actions = matchRoutes(Routes, req.path)
+    .map(({route}) => route.component.fetching ? route.component.fetching(store.dispatch, req.url) : null)
+    .map(async (actions) => await Promise.all(
+      (actions || []).map(p => p && new Promise(resolve => p.then(resolve).catch(resolve)))
+    ));
 
-    await Promise.all(actions);
-    const context = {};
-    const content = content_initialState(req, store, context);
+  await Promise.all(actions);
+  const context = {};
+  const content = content_initialState(req, store, context);
 
-    res.send(content);
+  res.send(content);
 };
 
 export const getItems = (req, res) => {
-    let rawdata = fs.readFileSync(path.join(__dirname, "./json/all.json"));
-    let items = JSON.parse(rawdata);
-    // console.log(items);
-    res.send(items);
+  let rawdata = fs.readFileSync(path.join(__dirname, "./json/all.json"));
+  let items = JSON.parse(rawdata);
+  res.send(items);
 };
 
 export const getItemWithId = (req, res) => {
-    const idx = req.params.id;
-    console.log("Item id fetched", idx);
-    let rawdata = fs.readFileSync(path.join(__dirname, "./json/all.json"));
-    let items = JSON.parse(rawdata);
-    const itemWithId = items.data[idx - 1];
-    // console.log(itemWithId);
-    res.send(itemWithId);
+  const idx = req.params.id;
+  console.log("Item id fetched", idx);
+  let rawdata = fs.readFileSync(path.join(__dirname, "./json/all.json"));
+  let items = JSON.parse(rawdata);
+  const itemWithId = items.data[idx - 1];
+  res.send(itemWithId);
 };
